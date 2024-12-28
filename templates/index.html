@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Inventory Management System</h1>
+    <form action="/login" method="POST">
+        <h2>Login</h2>
+        <input type="text" name="shop_name" placeholder="Shop Name" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+    <form action="/signup" method="POST">
+        <h2>Signup</h2>
+        <input type="text" name="shop_name" placeholder="Shop Name" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Signup</button>
+    </form>
+</body>
+</html>

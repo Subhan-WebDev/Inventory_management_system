@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/style.css" rel="stylesheet">
+    <title>Sell Item</title>
+    <script>
+        // from gpt
+        function updateSellingPrice() {
+            const itemName = document.getElementById("item_name").value;
+            const sellingPriceField = document.getElementById("selling_price");
+            
+            const inventory = {{ inventory | tojson }}; 
+            
+            if (itemName && inventory[itemName]) {
+                sellingPriceField.value = inventory[itemName]["selling_price"];
+            } else {
+                sellingPriceField.value = ""; 
+            }
+        }
+    </script>
+</head>
+<body class="singup-body">
+    <section class="signup add-item">
+        <video class="signup-video" src="/static/sell.mp4" autoplay muted loop></video>
+        <div class="bg-color"></div>
+        <h1 class="add-item-title">Sell Item</h1>
+        <div class="add-item-div">
+            <div class="signup-div">
+                <form class="signup-form" action="/sell_item/{{ shop_name }}" method="POST">
+                    <label class="signup-lable" for="item_name">Item Name:</label>
+                    <select class="signup-input" id="item_name" name="item_name" required onchange="updateSellingPrice()">
+                        <option value="" disabled selected>Select an item</option>
+                        {% for item_name, item_details in inventory.items() %}
+                            <option value="{{ item_name }}">{{ item_name }}</option>
+                        {% endfor %}
+                    </select><br>
+
+                    <label class="signup-lable" for="quantity">Quantity:</label>
+                    <input class="signup-input" type="number" id="quantity" name="quantity" required><br>
+
+                    <label class="signup-lable" for="selling_price">Selling Price:</label>
+                    <input class="signup-input" type="number" id="selling_price" name="selling_price" required><br>
+
+                    <button class="signup-button" type="submit">Sell Item</button>
+                </form>
+                <a class="signup-link" href="/inventory/{{ shop_name }}">Back to Inventory</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

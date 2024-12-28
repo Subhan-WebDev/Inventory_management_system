@@ -1,0 +1,17 @@
+{
+    "medics": {
+        "password": "1234",
+        "inventory": {
+            "colors": {
+                "quantity": 10,
+                "purchase_price": 10,
+                "selling_price": 15
+            }
+        },
+        "balance_sheet": {
+            "total_purchase": 200,
+            "total_sales": 150,
+            "profit": 50
+        }
+    }
+}

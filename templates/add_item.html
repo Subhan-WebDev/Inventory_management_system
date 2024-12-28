@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/style.css" rel="stylesheet">
+    <title>Add Item</title>
+</head>
+<body class="singup-body">
+    <section class="signup add-item">
+        <video class="signup-video" src="/static/sell.mp4" autoplay muted loop></video>
+        <div class="bg-color"></div>
+        <h1 class="add-item-title">Add Item</h1>
+        <div class="add-item-div">
+            <div class="signup-div">
+                <form class="signup-form" action="/add_item/{{ shop_name }}" method="POST">
+                    <label  class="signup-lable" for="item_name">Item Name:</label>
+                    <input class="signup-input" type="text" id="item_name" name="item_name" required><br>
+                    <label  class="signup-lable" for="quantity">Quantity:</label>
+                    <input class="signup-input" type="number" id="quantity" name="quantity" required><br>
+                    <label  class="signup-lable" for="purchase_price">Purchase Price:</label>
+                    <input class="signup-input" type="number" id="purchase_price" name="purchase_price" step="0.01" required><br>
+                    <label  class="signup-lable" for="selling_price">Selling Price:</label>
+                    <input class="signup-input" type="number" id="selling_price" name="selling_price" step="0.01" required><br>
+                    <button class="signup-button" type="submit">Add Item</button>
+                </form>
+                <a  class="signup-link" href="/inventory/{{ shop_name }}">Back to Inventory</a>
+            </div>
+        </div>
+    </section>
+    </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/style.css" rel="stylesheet">
+    <title>Inventory</title>
+</head>
+<body class="singup-body">
+    <section class="inventory ">
+        <video class="signup-video" src="/static/invetory.mp4" autoplay muted loop></video>
+        <div class="bg-color bg-inventory"></div>
+        <div class="inventory-div">
+            <h1 class="heading-inventory">{{ shop_name }} Inventory</h1>
+            <table class="table-inventory">
+                <thead class="thead-inventory">
+                    <tr class="thr-inventory">
+                        <th class="th-inventory">Item Name</th>
+                        <th>Quantity</th>
+                        <th>Purchase Price</th>
+                        <th>Selling Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item, details in inventory.items() %}
+                    <tr>
+                        <td>{{ item }}</td>
+                        <td>{{ details['quantity'] }}</td>
+                        <td>{{ details['purchase_price'] }}</td>
+                        <td>{{ details['selling_price'] }}</td>
+                        <td>
+                            <!-- <form action="/sell_item/{{ shop_name }}" method="POST" style="display:inline;">
+                                <input type="hidden" name="item_name" value="{{ item }}">
+                                <input class="signup-input" type="number" name="quantity" placeholder="Qty" required>
+                                <button class="inventory-remove" type="submit">Sell</button>
+                            </form> -->
+                            <a class="inventory-remove inventory-link" href="/sell_item/{{ shop_name }}">sell Item</a>
+                            <a class="inventory-remove inventory-link" href="/add_item/{{ shop_name }}">Add Item</a>
+                            <form action="/remove_item/{{ shop_name }}" method="POST" style="display:inline;">
+                                <input type="hidden" name="item_name" value="{{ item }}">
+                                <button class="inventory-remove" type="submit">Remove</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <thead class="thead-inventory">
+                    <tr class="thr-inventory">
+                        <th>Total Purchase</th>
+                        <th>Total Sell</th>
+                        <th>Profit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ balance_sheet['total_purchase'] }}</td>
+                        <td>{{ balance_sheet['total_sales'] }}</td>
+                        <td>{{ balance_sheet['profit'] }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="links">
+                <a class="inventory-remove inventory-link" href="/add_item/{{ shop_name }}">Add Item</a>
+                <a href="{{ url_for('download_balance_sheet', shop_name=shop_name) }}" class="signup-link">
+                    Download Balance Sheet
+                </a>
+            </div>
+    <!-- <a href="/dashboard/{{ shop_name }}">Back to Dashboard</a> -->
+</div>
+</section>
+</body>
+</html>

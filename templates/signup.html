@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/style.css" rel="stylesheet">
+    <title>Sign-up</title>
+</head>
+<body class="singup-body">
+    <section class="signup">
+        <video class="signup-video" src="/static/invetory.mp4" autoplay muted loop></video>
+        <div class="bg-color"></div>
+        <div class="signup-div">
+            <form class="signup-form" action="/signup" method="POST">
+                <label class="signup-lable" for="shop_name">Shop Name:</label>
+                <input class="signup-input" type="text" id="shop_name" name="shop_name" required>
+                <label class="signup-lable" for="password">Password:</label>
+                <input class="signup-input" type="password" id="password" name="password" required>
+                <button class="signup-button" type="submit">Signup</button>
+            </form>
+            <p>Already have an account? <a class="signup-link" href="/">Login here</a></p>
+        </div>
+    </section>
+</body>
+</html>
