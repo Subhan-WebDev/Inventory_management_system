@@ -1,1 +1,12 @@
 
+{
+    "medics": {
+        "password": "1234",
+        "inventory": {},
+        "balance_sheet": {
+            "total_purchase": 200,
+            "total_sales": 150,
+            "profit": 50
+        }
+    }
+}
